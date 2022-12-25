@@ -1,0 +1,69 @@
+.player{
+    background-color: white;
+    border-radius:15px 15px 0px 0px;
+    .closePlayer{
+        width:10px;
+        height:0px;
+        top:5px;
+        left:90%;
+        z-index: 5;
+        position: relative;
+        background-color: transparent;
+        button{
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            color:white;
+        }
+    }  
+    .expandPlayer{
+        width:10px;
+        height:0px;
+        top:5px;
+        left:0;
+        z-index: 5;
+        position: relative;
+        background-color: transparent;
+        button{
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            color:white;
+        }
+    }  
+
+    img{
+        border-radius: 15px 15px 0px 0px;
+
+    }
+    video{
+        border-radius: 15px 15px 0px 0px;
+
+    }
+
+    hr{
+        border: 1px rgb(34, 30, 30) solid;
+    }
+    .playerPlayButton{
+        z-index: 3;
+        position: fixed;
+        top:73%;
+        left:82.5%;
+        button{
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            color:white;
+        }
+    }
+}
+
+.player:hover{
+    video{
+        transition: 0.35s ease-in-out;
+        // filter: blur(5px);
+        -webkit-filter: brightness(50%);
+
+    }
+}
+

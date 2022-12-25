@@ -1,0 +1,147 @@
+.videoPage{
+    width:100%;
+    .videoContainer{
+        margin-top: 4%;
+        .videoContainerVideo{
+            width:100%;
+            background-color: black;
+            margin: 0 auto;
+            img{
+                width:78%;
+                margin: 0 auto;
+                height:fit-content;
+            }
+            .bottomVideoPlayerBar{
+                display: flex;
+                z-index: 3;
+                position: relative;
+                // background-color: white;
+                // padding: 10px 10px;
+                button{
+                    background-color: transparent;
+                    color:white;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .belowVideoPage{
+            display: flex;
+            .leftVideo{
+                width: 75%;
+                .videoTitle{
+                    width:80%;
+                    margin: 1% auto;
+                    text-align: left;
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+                .videoMisc{
+                    display: flex;
+                    width:80%;
+                    margin:0 auto;
+                    .videoAvatar{
+                        width:10%;
+                        border-radius: 50%;
+                        img{
+                            cursor: pointer;
+                            border-radius: 50%;
+                            width:50px;
+                            height: fit-content;
+                        }
+                    }
+                    .channel-subcount{
+                        width:8.5%;
+                        display: inline-block;
+                        text-align: left;
+                        margin-left: 1%;
+                        margin-right: 6.5%;
+                        .channelName{
+                            font-size: 17px;
+                            font-weight: 500;
+                            cursor: pointer;
+                        }
+                        .subcount{
+                            font-size: 15px;
+                        }
+                    }
+                    .subscribeButton{
+                        width:12%;
+                        button{
+                            padding:5px 5px;
+                            width:100px;
+                            height:40px;
+                            border-radius: 20px;
+                            background-color: black;
+                            color:white;
+                            cursor: pointer;
+                        }
+                    }
+                    .filler{
+                        width:10%;
+                    }
+                    .miscVideo{
+                        width:40%;
+                        display: flex;
+                        .like-dislike{
+                            width:40%;
+                            .like{
+                                width: 50%;
+                                padding:5px 5px;
+                                background-color: rgb(243, 242, 242);
+                                border-radius: 20px 0px 0px 20px;
+                                border:none;
+                                border-right: 1px solid rgb(214, 214, 214);
+                                cursor: pointer;
+                            }
+                            .dislike{
+                                width: 50%;
+                                padding:5px 5px;
+                                background-color: rgb(243, 242, 242);
+                                border: none;
+                                border-radius: 0px 20px 20px 0px;
+                                cursor: pointer;
+
+                            }
+                            .like:hover,.dislike:hover{
+                                background-color: rgb(224, 224, 224);
+                            }
+                        }
+                    
+                        .share{
+                            width:25%;
+                            position: relative;
+                            justify-content: center;
+                            align-items: center;
+                            .shareButton{
+                                width: 100%;
+                                padding:5px 5px;
+                                background-color: rgb(243, 242, 242);
+                                border: none;
+                                border-radius: 20px 20px 20px 20px;
+                                cursor: pointer;
+                                display: flex;
+                                position: relative;
+                                justify-content: center;
+                                align-items: center;
+                                .btn{
+                                    
+                                }
+                                div{
+                                    padding:5px 5px;
+                                    font-size: 15px;
+                                }
+                            }
+                            .shareButton:hover{
+                                background-color: rgb(231, 231, 231);
+                            }
+                        }
+                    }
+                }
+            }
+            .rightVideo{
+                width:25%;
+            }
+        }
+    }
+}

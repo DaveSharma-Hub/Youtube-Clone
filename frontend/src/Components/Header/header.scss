@@ -1,0 +1,143 @@
+.header{
+    display: flex;
+    height: 60px;
+    width:100%;
+    position: fixed;
+    top:0;
+    background-color: white;
+    z-index: 10;
+    .hamburger{
+        justify-content: center;
+        align-items: center;
+        padding: 10px 10px;
+        border-radius: 100%;
+        margin-left: 10px;
+        height: 28px;
+        width:30px;
+        cursor: pointer;
+        margin-top: 5px;
+        .hamburger-gi{
+            font-weight: 100;
+            stroke-width:1ch;
+        }
+    }
+
+    .hamburger:hover{
+        background-color: rgb(241, 241, 241);
+        transition: 0.2s ease-in-out;
+    }
+    .logo{
+        width:20px;
+        height:30px;
+        padding:10px 20px;
+        margin-right: 100px;
+        cursor: pointer;
+        img{
+            width:fit-content;
+            height:40px;
+            width:105px;
+        }
+    }
+    .search{
+        width:80%;
+        form{
+            padding:10px 20px;
+            height:28px;
+            .lightMode{
+                border: 1px solid grey;
+                width:50%;
+                height:100%;
+                border-radius: 30px 0px 0px 30px;
+                padding: 5px 15px;
+                font-size: 20px;
+                background-color: white;
+                color:black;
+            }
+            .darkMode{
+                border: 1px solid rgb(49, 49, 49);
+                width:50%;
+                height:100%;
+                border-radius: 30px 0px 0px 30px;
+                padding: 5px 15px;
+                font-size: 20px;
+                background-color: black;
+                color:white;
+            }
+
+            .lightModeButton{
+                border: 1px solid grey;
+                height:40px;
+                width:55px;
+                border-radius: 0px 20px 20px 0px;
+                padding:0px;
+                cursor: pointer;
+                align-items: center;
+                justify-self: center;
+                background-color: rgb(244, 244, 244);
+                div{
+                    height:26.5px;
+                }
+            }
+            .lightModeButton:hover{
+                background-color: rgb(229, 229, 229);
+            }
+            .darkModeButton{
+                border: 1px solid rgb(49, 49, 49);
+                height:40px;
+                width:55px;
+                border-radius: 0px 20px 20px 0px;
+                padding:0px;
+                cursor: pointer;
+                align-items: center;
+                justify-self: center;
+                background-color: black;
+                color:white;
+                div{
+                    height:26.5px;
+                }
+            }
+            // .darkModeButton:hover{
+            //     background-color: rgb(229, 229, 229);
+            // }
+
+        }
+    }
+
+    .signin{
+        padding:10px 10px;
+
+        button{
+            width:100px;
+            height:40px;
+            border-radius: 20px;
+            border: 1px solid rgb(202, 202, 202);
+            background-color: transparent;
+            text-align: center;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+
+            .icon{
+                padding:5px 0px;
+                color:rgb(7, 111, 255);
+                border:none;
+                .ri-account-cirlce{
+                    stroke-width: 1%;
+                    border: none;
+                }
+            }
+            .text{
+                text-align: center;
+                padding: 0px 6px;
+                color:rgb(7, 111, 255);
+                font-weight: 300;
+                stroke-width: 100px;
+            }
+        }
+
+        button:hover{
+            background-color: rgba(7, 111, 255,0.1)
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.thumbnails{
+    margin-top: 73px;
+    display: grid;
+    overflow-y: auto;
+    grid-template-columns: auto auto auto auto;
+    width:98%;
+    max-width: 98%;
+    height:200vh;
+    margin-left: 20%;
+    z-index: 2;
+}

@@ -1,0 +1,83 @@
+hr{
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.firstItemsC{
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+    margin:0;
+    padding:0;
+    .exploreTextC{
+        text-align: left;
+        width:83%;
+        margin: 0 auto;
+        font-size: 25px;
+    }
+    // justify-content: center;
+    // align-items: center;
+    .itemC{
+        width:90%;
+        height:20px;
+        margin:10 auto;
+        padding:15px 10px;
+        font-size: 5px;
+        font-weight: 400;
+        border-radius: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .iconC{
+            padding:5px 0px;
+
+        }
+        .textC{
+            width:80%;
+            height:170%;
+            text-align: center;
+        }
+
+    }
+    .itemC:hover{
+        background-color: rgb(239, 238, 238);
+        transition:0.1s ease-in-out;
+    }
+    .signinC{
+        padding:10px 10px;
+
+        button{
+            width:100px;
+            height:40px;
+            border-radius: 20px;
+            border: 1px solid rgb(202, 202, 202);
+            background-color: transparent;
+            text-align: center;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            .iconC{
+                padding:5px 0px;
+                color:rgb(7, 111, 255);
+                border:none;
+                .ri-account-cirlce{
+                    stroke-width: 1%;
+                    border: none;
+                }
+            }
+            .textC{
+                text-align: center;
+                padding: 0px 6px;
+                color:rgb(7, 111, 255);
+                font-weight: 300;
+                stroke-width: 100px;
+            }
+        }
+
+        button:hover{
+            background-color: rgba(7, 111, 255,0.1)
+        }
+    }
+}
