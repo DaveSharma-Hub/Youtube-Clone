@@ -16,6 +16,6 @@ Full Stack Youtube replica **in progress**
 
 ## How it Works
 
-frontend created in React.js using Sass and MUI uses compositional pattern to break pages into components (Pages *use* Components).
-server(backend) using Node.js is a custom loadbalancer application that uses a GraphQL backend to prevent overfetching and underfetching of data (compared to 
+``frontend`` created in React.js utilizes Sass and MUI for styling, while the React.js utilizes the compositional pattern to break pages into components (Pages *use* Components).
+``server``(backend) using Node.js is a custom loadbalancer application that uses a GraphQL backend to prevent overfetching and underfetching of data (compared to 
 RESTful APIs). The custom loadbalancing application utilizes vertical scaling taking advantage of the number of cores of system server is hosted on.
