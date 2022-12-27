@@ -13,14 +13,15 @@ function Thumbnails({setClicked}){
     const convertNumberToString = (numberValue) => {
         let value = numberValue;
         if(numberValue/1000>=1 && numberValue/1000<1000){
-            value = numberValue.toString()+"K";
+            value = (numberValue/1000).toString()+"K";
         }
-        else if(numberValue/1000000>=1 && numberValue/1000000<=1000){
-            value = numberValue.toString()+"M";
+        if(numberValue/1000000>=1 && numberValue/1000000<=1000){
+            value = (numberValue/1000000).toString()+"M";
         }
-        else if(numberValue/1000000000>=1 && numberValue/1000000000<=1000){
-            value = numberValue.toString()+"B";
+        if(numberValue/1000000000>=1 && numberValue/1000000000<=1000){
+            value = (numberValue/1000000000).toString()+"B";
         }
+        console.log(value);
         return value;
     }
     return(
@@ -40,7 +41,7 @@ function Thumbnails({setClicked}){
                             img={item.thumbnail}
                             title={item.title}
                             avatar={item.creatorIcon}
-                            views={convertNumberToString(item.views)}
+                            views={convertNumberToString(item.viewCount)}
                             channel={item.channel}
                             date="2 months"
                             setClicked={setClicked}
