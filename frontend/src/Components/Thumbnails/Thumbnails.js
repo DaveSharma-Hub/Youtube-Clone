@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useGetRecommendedVideos from "../../grapqlCommuncation/queries/videos/getRecommendedVideos";
+import useGetRecommendedVideos from "../../grapqlCommuncation/queries/videos/useGetRecommendedVideos";
 import Card from "../Card/Card";
 import LoadingCard from "../Card/LoadingCard/LoadingCard";
 import './thumbnails.scss';

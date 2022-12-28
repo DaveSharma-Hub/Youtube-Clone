@@ -7,131 +7,44 @@ import ScrollVideo from '../../Components/ScrollVideo/ScrollVideo';
 import Header from '../../Components/Header/Header';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import {v4 as uuid} from 'uuid';
+import useGetRecommendedShorts from '../../grapqlCommuncation/queries/shorts/useGetRecommendedShorts';
 function Shorts({collapsed,setCollapsed}){
-    const [currentData, setCurrentData] = React.useState([
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-            {
-                id:uuid(),
-                image:'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-09.jpg?ssl=1'
-            },
-        ]);
-
-    const [page, setPage] = React.useState(0);
+    const {data,loading,error,fetchMore} = useGetRecommendedShorts("123",0);
     const [currentView, setCurrentView] = React.useState(0);
     const getPerRequest = 20;
     const history = useNavigate();
-
-    // React.useEffect(()=>{
-    //     handleGetData(page);
-    // },[])
-
+    const [currentData, setCurrentData] = React.useState([]);
+    
+    // const [page, setPage] = React.useState(0);
+    
+    if(error) return <h1>Error...</h1>
+    if(loading) return <h1>Loading...</h1>
     // const refreshFunction = () => {
-    //     setPage(0);
-    //     handleGetData(page);
+    //     // setPage(0);
+    //     handleGetData();
     // }
-    // const handleGetData = (index) =>{
-    //     const url = `http://localhost:8000/get?page=${index}`;
-    //     console.log(url);
-    //     axios.get(url).then((res)=>setCurrentData([...currentData,...res.data]))
-    // }
+    const handleGetData = async(position) => {
+       const value = await fetchMore({
+            variables:{
+                userId:"123",
+                pageStartingPosition:position
+            }
+       })
 
-    // const fetchData = () => {
-    //     console.log('Fetch')
-    //     const index = page+getPerRequest;
-    //     setPage(index);
-    //     handleGetData(page);
-    // }
+       if(!value.loading && !value.error){
+            console.log(value);
+            if(currentData.length==0){
+                const tmp = [...data.recommendedShorts,...value.data.recommendedShorts]
+                setCurrentData(tmp);
+            }else{
+                setCurrentData([...currentData,...value.data.recommendedShorts]);
+            }
+       }
+    }
+
+    const fetchData = () => {
+        handleGetData(currentData.length+10)
+    }
 
     return(
         <div className="main">
@@ -140,8 +53,8 @@ function Shorts({collapsed,setCollapsed}){
                 <Sidebar collapsed={collapsed}/>
                 <div className='infiniteScrollShort'>
                     <InfiniteScroll
-                    dataLength={currentData.length} //This is important field to render the next data
-                    // next={()=>{fetchData()}}
+                    dataLength={currentData.length<=0 ? data.recommendedShorts.length : currentData.length} //This is important field to render the next data
+                    next={()=>{fetchData()}}
                     hasMore={true}
                     loader={<h4>Loading...</h4>}
                     endMessage={
@@ -161,7 +74,17 @@ function Shorts({collapsed,setCollapsed}){
                     }
                     >
                         {
+                            currentData.length>0 ? 
                             currentData?.map((item,index)=>(
+                                <div key={item.id} className='outerVideo'>
+                                    <div id={index} className='upperVideo'></div>
+                                    <ScrollVideo
+                                        image={item.image}
+                                    />
+                                </div>
+                            ))
+                            :
+                            data.recommendedShorts.map((item,index)=>(
                                 <div key={item.id} className='outerVideo'>
                                     <div id={index} className='upperVideo'></div>
                                     <ScrollVideo

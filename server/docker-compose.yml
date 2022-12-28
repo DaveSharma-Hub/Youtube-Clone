@@ -1,0 +1,7 @@
+version: "1.0"
+services:
+  web:
+    build: .
+    ports:
+      - "52911:4000"
+    container_name: "server-middleware"

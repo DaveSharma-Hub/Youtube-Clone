@@ -6,7 +6,7 @@ const numberOfCPU = require('os').cpus().length;
 const schema = require('./graphql/schema');
 const root = require('./graphql/resolver');
 
-const restfulPORT = 8000;
+// const restfulPORT = 8000;
 const graphqlPORT = 4000;
 
 app.use(cors());
