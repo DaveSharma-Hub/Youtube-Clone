@@ -14,9 +14,10 @@ Full Stack Youtube replica **in progress**
 ```cd server```
 ```npm start```
 
-OR if Docker installed
+*OR with docker*
 
 in bash shell
+
 ```cd server```
 
 ```./serverSetupRunner.sh```
