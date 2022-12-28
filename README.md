@@ -3,6 +3,8 @@
 ## Description
 Full Stack Youtube replica **in progress**
 
+Functionality so far: Main recommended (For You page), Shorts, Mini Video Player 
+
 ## Preview
 *Sample Screenshot progress so far*
 ![image](https://user-images.githubusercontent.com/81478885/209453858-7f02dcd1-4cd4-4946-b587-f02c951697e3.png)
