@@ -18,6 +18,7 @@ OR if Docker installed
 
 in bash shell
 ```cd server```
+
 ```./serverSetupRunner.sh```
 
 to run docker compose up
