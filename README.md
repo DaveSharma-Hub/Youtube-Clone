@@ -14,6 +14,14 @@ Full Stack Youtube replica **in progress**
 ```cd server```
 ```npm start```
 
+OR if Docker installed
+
+in bash shell
+```cd server```
+```./serverSetupRunner.sh```
+
+to run docker compose up
+
 ## How it Works
 
 ``frontend`` created in React.js utilizes Sass and MUI for styling, while the React.js utilizes the compositional pattern to break pages into components (Pages *use* Components).
