@@ -2,9 +2,8 @@ import Header from '../../Components/Header/Header';
 import './videopage.scss';
 import {BiLike,BiDislike} from 'react-icons/bi';
 import {RiShareForwardLine} from 'react-icons/ri';
-import video from './video.mp4';
 import { useSearchParams } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {GiPauseButton} from 'react-icons/gi';
 import {FaPlay} from 'react-icons/fa';
 
@@ -30,6 +29,7 @@ function VideoPage({
     const videoRef = useRef();
     const [paused, setPaused] = useState(false);
     const [storeCurrentTime, setStoreCurrentTime] = useState(time);
+    // const [video, setVideo] = useState("");
 
     const setCurrentTime = () => {
 
@@ -40,6 +40,17 @@ function VideoPage({
         }
     }
 
+    // useEffect(()=>{
+    //     axios.get("http://localhost:4000/videos")
+    //         .then((response)=>{
+    //             console.log(response);
+    //             setVideo(response.data)
+    //         })
+    //         .catch((error)=>{
+    //             console.log(error)
+    //         })
+    // },[])
+
     return(
         <div className="videoPage">
             <Header collapsed={collapsed} setCollapsed={setCollapsed} color="black"/>
@@ -47,7 +58,7 @@ function VideoPage({
                 <div className='videoContainerVideo'>
                 {/* <source src={video} type="video/mp4"/> */}
                 <video width="90%" height="609vh" controls autoPlay={true} ref={videoRef} onPlay={()=>{setCurrentTime()}}>
-                    <source src={video} type="video/mp4" />
+                    <source src="http://localhost:4000/videos" type="video/mp4" ></source>
                 </video>
                 <div className='bottomVideoPlayerBar'>
                     {

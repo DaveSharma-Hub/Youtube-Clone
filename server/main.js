@@ -6,8 +6,7 @@ const numberOfCPU = require('os').cpus().length;
 const schema = require('./graphql/schema');
 const root = require('./graphql/resolver');
 
-// const restfulPORT = 8000;
-const graphqlPORT = 4000;
+const endpointPORT = 4000;
 
 app.use(cors());
 
@@ -17,12 +16,21 @@ function graphqlEndpoint(){
         rootValue: root,
         graphiql: true,
       }));
-    app.listen(graphqlPORT,()=>{console.log(`Listening on port ${graphqlPORT}`)});
+
+    app.get('/videos',(req,res)=>{
+        res.sendFile("assets/video.mp4", { root: __dirname });
+    })
+    app.listen(endpointPORT,()=>{console.log(`Listening on port ${endpointPORT}`)});
+
+}
+
+function restfulEndpoint(){
+    
 }
 
 function apis(){
     graphqlEndpoint();
-    //restfulEndpoint();
+    // restfulEndpoint();
 }
 
 function loadbalancerRunner(){

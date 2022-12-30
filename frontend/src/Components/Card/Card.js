@@ -4,11 +4,24 @@ import './card.scss';
 function Card({img,title,avatar,views,channel,date,setClicked}){
 
     const [expandView, setExpandView] = useState(false);
+    const [hover,setHover] = useState(false);
+    let timer1;
 
     return(
         <div 
-            className="card" 
+            className={hover ? "cardHovered":"card"} 
             onClick={()=>{setClicked(true)}}
+            onMouseEnter={()=>{
+                timer1 = setTimeout(()=>{
+                    setHover(true)
+                },650)
+            }}
+            onMouseLeave={()=>{
+                if(timer1){
+                    clearTimeout(timer1);
+                }
+                setHover(false);
+            }}
         >
             <div className="image">
                 <img 

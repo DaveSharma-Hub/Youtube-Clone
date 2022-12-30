@@ -16,13 +16,22 @@
                     height: 5px;
                 }
             }
-            // .selectButton{
-            //     z-index: 0;
-            //     position: fixed;
-            //     // top:0;
-            //     // left:90%;
-            //     background-color: red;
-            // }
+            .selectButton{
+                z-index: 10;
+                position: fixed;
+                top:10%;
+                left:90%;
+                background-color: transparent;
+                button{
+                    background-color: transparent;
+                    border:none;
+                    cursor: pointer;
+                    color:grey;
+                }
+                button:hover{
+                    color:rgb(157, 155, 155);
+                }
+            }
         }
     }
 }

@@ -6,7 +6,9 @@ import './shorts.scss';
 import ScrollVideo from '../../Components/ScrollVideo/ScrollVideo';
 import Header from '../../Components/Header/Header';
 import Sidebar from '../../Components/Sidebar/Sidebar';
+import {BsFillArrowUpCircleFill,BsFillArrowDownCircleFill} from 'react-icons/bs';
 import {v4 as uuid} from 'uuid';
+
 import useGetRecommendedShorts from '../../grapqlCommuncation/queries/shorts/useGetRecommendedShorts';
 function Shorts({collapsed,setCollapsed}){
     const {data,loading,error,fetchMore} = useGetRecommendedShorts("123",0);
@@ -14,7 +16,8 @@ function Shorts({collapsed,setCollapsed}){
     const getPerRequest = 20;
     const history = useNavigate();
     const [currentData, setCurrentData] = React.useState([]);
-    
+    const [currentViewId,setCurrentViewId] = React.useState(0);
+
     // const [page, setPage] = React.useState(0);
     
     if(error) return <h1>Error...</h1>
@@ -84,7 +87,7 @@ function Shorts({collapsed,setCollapsed}){
                                 </div>
                             ))
                             :
-                            data.recommendedShorts.map((item,index)=>(
+                            !loading && data ? data.recommendedShorts.map((item,index)=>(
                                 <div key={item.id} className='outerVideo'>
                                     <div id={index} className='upperVideo'></div>
                                     <ScrollVideo
@@ -92,17 +95,29 @@ function Shorts({collapsed,setCollapsed}){
                                     />
                                 </div>
                             ))
+                            :
+                            null
                         }
                     </InfiniteScroll> 
                     <div className='selectButton'>
-                        <button onClick={()=>{
-                            setCurrentView(currentView-1>=0 ? currentView-1 : 0);
-                            history(`/${currentView}`);
-                            }}>Previous</button>
-                        <button onClick={()=>{
-                            setCurrentView(currentView+1);
-                            history(`/#${currentView}`);
-                            }}>Next</button>
+                        <div>
+                            <button onClick={()=>{
+                                setCurrentView(currentView-1>=0 ? currentView-1 : 0);
+                                history(`/${currentView}`);
+                                }}
+                            >
+                                <BsFillArrowUpCircleFill size={40}/>
+                            </button>
+                        </div>
+                        <div>
+                            <button onClick={()=>{
+                                setCurrentView(currentView+1);
+                                history(`/#${currentView}`);
+                                }}
+                            >
+                                <BsFillArrowDownCircleFill size={40}/>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

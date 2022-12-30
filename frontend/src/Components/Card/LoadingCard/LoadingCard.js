@@ -5,7 +5,7 @@ import { Skeleton } from '@mui/material';
 function LoadingCard(){
     return(
         <div 
-            className="card" 
+            className="loadingCard" 
         >
             <div className="image">
                 <Skeleton variant="rounded" width={210} height={60} />
