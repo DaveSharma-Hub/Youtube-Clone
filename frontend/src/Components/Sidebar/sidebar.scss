@@ -1,14 +1,5 @@
-.sidebar{
-    margin-top: 40px;
-    width:17%;
-    justify-content: center;
-    height:90vh;
-    overflow-y: auto;
-    position: fixed;
-    top:40px;
-    z-index: 0;
-    /* width */
-::-webkit-scrollbar {
+   /* width */
+   ::-webkit-scrollbar {
     width: 10px;
   }
   
@@ -20,16 +11,24 @@
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: red; 
+    background: rgb(173, 173, 173); 
     border-radius: 10px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
+    background: grey; 
   }
 
-
+.sidebar{
+    margin-top: 40px;
+    width:17%;
+    justify-content: center;
+    height:90vh;
+    overflow-y: auto;
+    position: fixed;
+    top:40px;
+    z-index: 0;
 
     hr{
         border: 1px solid rgb(220, 220, 220);

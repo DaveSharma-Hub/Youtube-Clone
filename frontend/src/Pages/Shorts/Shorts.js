@@ -83,6 +83,7 @@ function Shorts({collapsed,setCollapsed}){
                                     <div id={index} className='upperVideo'></div>
                                     <ScrollVideo
                                         image={item.image}
+                                        index={index}
                                     />
                                 </div>
                             ))
@@ -92,6 +93,7 @@ function Shorts({collapsed,setCollapsed}){
                                     <div id={index} className='upperVideo'></div>
                                     <ScrollVideo
                                         image={item.image}
+                                        index={index}
                                     />
                                 </div>
                             ))

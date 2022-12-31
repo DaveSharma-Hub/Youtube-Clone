@@ -18,7 +18,7 @@ function graphqlEndpoint(){
       }));
 
     app.get('/videos',(req,res)=>{
-        res.sendFile("assets/video.mp4", { root: __dirname });
+        res.sendFile("assets/video(2).mp4", { root: __dirname });
     })
     app.listen(endpointPORT,()=>{console.log(`Listening on port ${endpointPORT}`)});
 
