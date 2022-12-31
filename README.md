@@ -30,6 +30,16 @@ to run docker compose up
 ``server``(backend) using Node.js is a custom loadbalancer application that uses a GraphQL backend to prevent overfetching and underfetching of data (compared to 
 RESTful APIs). The custom loadbalancing application utilizes vertical scaling taking advantage of the number of cores of system server is hosted on.
 
+## Tech Stack
+
+![image](https://user-images.githubusercontent.com/81478885/210152087-f523a584-69ea-4067-a72e-2891faaf02c7.png)
+
+
+## Architecure Diagram
+
+![image](https://user-images.githubusercontent.com/81478885/210151893-374f2eec-5ce1-44fc-b780-a5ac75d27d5b.png)
+
+
 ## Data Flow Diagram
 
 ![image](https://user-images.githubusercontent.com/81478885/209745814-2db4710b-6eae-45f1-b40f-4a33f0606548.png)
