@@ -7,6 +7,13 @@ Full Stack Youtube replica **in progress**
 *Sample Screenshot progress so far*
 ![image](https://user-images.githubusercontent.com/81478885/209453858-7f02dcd1-4cd4-4946-b587-f02c951697e3.png)
 
+
+![image](https://user-images.githubusercontent.com/81478885/212520373-cd74ccfc-e1ae-42e2-8da1-5d1e040e87ad.png)
+![image](https://user-images.githubusercontent.com/81478885/212520346-6e4c83e1-a0df-4640-bf43-e3e46be5ca3f.png)
+
+![image](https://user-images.githubusercontent.com/81478885/212520356-b165b571-defa-4020-b5b2-f72b522ac5b8.png)
+
+
 ## Usage 
 ```cd frontend```
 ```npm start```
