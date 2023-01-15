@@ -4,7 +4,9 @@ import Main from './Pages/Main/Main';
 import VideoPage from './Pages/VideoPage/VideoPage';
 import { useState } from 'react';
 import Shorts from './Pages/Shorts/Shorts';
-
+import Search from './Pages/Search/Search';
+import SignIn from './Pages/Accounts/SignIn/SignIn';
+import SignUp from './Pages/Accounts/SignUp/SignUp';
 function App() {
   const [collapsed,setCollapsed] = useState(false);
   const [clicked,setClicked] = useState(false);
@@ -46,6 +48,16 @@ function App() {
                 setCollapsed={setCollapsed}
             />}
           />
+          <Route path="/search" element={
+            <Search 
+              collapsed={collapsed}
+              setCollapsed={setCollapsed}
+            />
+          }/>
+          <Route path="/accounts">
+            <Route path="/accounts/signin" element={<SignIn />}/>
+            <Route path="/accounts/signup" element={<SignUp />}/>
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

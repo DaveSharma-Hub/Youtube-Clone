@@ -1,0 +1,50 @@
+.searchResult{
+    display: inline-block;
+    width:98%;
+    margin-left: 25%;
+    margin-top: 73px;
+
+    .individualSearchVideo{
+        display: flex;
+        padding: 10px 10px;
+        text-align: left;
+        img {
+            height:220px;
+            width:fit-content;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .searchVideoInfo {
+            padding:10px;
+            
+            .searchVideoTitle{
+                font-size: 20px;
+                font-weight: 400;
+                padding:0px 2px;
+            }
+
+            .searchVideoDescription {
+                width:90%;
+                padding:10px 2px;
+            }
+            .searchVideoViewCount{
+                font-size: 15px;
+                padding:5px 2px;
+            }
+            .searchVideoChannel{
+                padding:5px 2px;
+                align-items: center;
+                display: flex;
+                cursor: pointer;
+                img {
+                    height:30px;
+                    width:fit-content;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+            }
+        }
+    }
+}

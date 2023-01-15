@@ -2,12 +2,20 @@ import './header.scss';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import {RiAccountCircleLine} from 'react-icons/ri';
 import {BsSearch} from 'react-icons/bs';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useSearchParams} from 'react-router-dom';
 import {GiHamburgerMenu} from 'react-icons/gi';
+import { useState } from 'react';
 
 function Header({collapsed,setCollapsed,color="white"}){
+    const [searchParams] = useSearchParams();
+    const [searchValue,setSearchValue] = useState(searchParams.get('value'));
 
     const history = useNavigate();
+
+    const handleSearch = () => {
+        history(`/search?value=${searchValue}`);
+    }
+
     return(
         <div className="header" style={{backgroundColor:color}}>
             <div className='hamburger' onClick={()=>{setCollapsed(!collapsed)}}>
@@ -22,17 +30,31 @@ function Header({collapsed,setCollapsed,color="white"}){
                 />
             </div>
             <div className="search">
-                <form>
-                    <input className={color==="white"? "lightMode" : "darkMode"} placeholder="Search"/>
-                    <button className={color==="white"? "lightModeButton" : "darkModeButton"}>
+                <form
+                    onSubmit={(e)=>{
+                        e.preventDefault();
+                        handleSearch();
+                    }}
+                >
+                    <input 
+                        className={color==="white"? "lightMode" : "darkMode"} 
+                        placeholder="Search" 
+                        onChange={(e)=>{setSearchValue(e.target.value)}}
+                        value={
+                           searchValue
+                        }
+                        required/>
+                    <button className={color==="white"? "lightModeButton" : "darkModeButton"} type="submit">
                         <div>
-                            <BsSearch size={20}/>
+                            <BsSearch size={20} className="headerSearchIcon"/>
                         </div>
                     </button>
                 </form>
             </div>
             <div className="signin">
-                <button>
+                <button onClick={()=>{
+                    history('/accounts/signin')
+                }}>
                     <div className="icon">
                         <RiAccountCircleLine size={25} className="ri-account-cirlce" />
                     </div>

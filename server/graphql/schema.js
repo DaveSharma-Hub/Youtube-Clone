@@ -14,6 +14,7 @@ var schema = buildSchema(`
     viewCount:String
     popularityCount:Popularity
     subscriberCount:Int
+    description:String
   }
 
   type Shorts {
@@ -27,6 +28,7 @@ var schema = buildSchema(`
   type Query {
     recommendedVideos(userId:String):[Video]
     recommendedShorts(userId:String,pageStartingPosition:Int):[Shorts]
+    searchResults(searchString:String):[Video]
   }
 `);
 

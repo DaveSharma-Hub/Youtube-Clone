@@ -21,7 +21,6 @@ function Thumbnails({setClicked}){
         if(numberValue/1000000000>=1 && numberValue/1000000000<=1000){
             value = (numberValue/1000000000).toString()+"B";
         }
-        console.log(value);
         return value;
     }
     return(

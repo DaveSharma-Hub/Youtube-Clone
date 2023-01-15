@@ -1,4 +1,6 @@
 const {v4:uuid} = require('uuid')
+const searchFunction = require('../utils/searchFunction').searchFunction;
+
 
 var root = {
     recommendedVideos: (args) => {
@@ -7,6 +9,11 @@ var root = {
     recommendedShorts: (args) => {
         const pageStartingPosition = args.pageStartingPosition;
         return shorts.slice(pageStartingPosition,pageStartingPosition+10);
+    },
+    searchResults: (args) => {
+        const searchToken = args.searchString;
+        const videoList = searchFunction(videos,searchToken,["title","channel"],false);
+        return videoList;
     }
   };
 
@@ -24,7 +31,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -37,7 +45,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -50,7 +59,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -63,7 +73,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -76,7 +87,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -89,7 +101,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -102,7 +115,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -115,7 +129,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -128,7 +143,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -141,7 +157,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -154,7 +171,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -167,7 +185,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -180,7 +199,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -193,7 +213,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -206,7 +227,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -219,7 +241,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -232,7 +255,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -245,7 +269,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -258,7 +283,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -271,7 +297,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -284,7 +311,8 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
         id:uuid(),
@@ -297,8 +325,150 @@ const videos = [
             likeCount:1000000,
             dislikeCount:10000
         },
-        subscriberCount:17000000
-    },       
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+    {
+        id:uuid(),
+        title:"Video Title Example",
+        channel:"Channel",
+        thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
+        creatorIcon:"https://tr.rbxcdn.com/8fc7652f210a411f6d07df86e4055958/420/420/Image/Png",
+        viewCount:1000000,
+        popularityCount:{
+            likeCount:1000000,
+            dislikeCount:10000
+        },
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+    {
+        id:uuid(),
+        title:"Video Title Example",
+        channel:"Channel",
+        thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
+        creatorIcon:"https://tr.rbxcdn.com/8fc7652f210a411f6d07df86e4055958/420/420/Image/Png",
+        viewCount:1000000,
+        popularityCount:{
+            likeCount:1000000,
+            dislikeCount:10000
+        },
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+    {
+        id:uuid(),
+        title:"Video Title Example",
+        channel:"Channel",
+        thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
+        creatorIcon:"https://tr.rbxcdn.com/8fc7652f210a411f6d07df86e4055958/420/420/Image/Png",
+        viewCount:1000000,
+        popularityCount:{
+            likeCount:1000000,
+            dislikeCount:10000
+        },
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+    {
+        id:uuid(),
+        title:"Video Title Example",
+        channel:"Channel",
+        thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
+        creatorIcon:"https://tr.rbxcdn.com/8fc7652f210a411f6d07df86e4055958/420/420/Image/Png",
+        viewCount:1000000,
+        popularityCount:{
+            likeCount:1000000,
+            dislikeCount:10000
+        },
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+    {
+        id:uuid(),
+        title:"Video Title Example",
+        channel:"Channel",
+        thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
+        creatorIcon:"https://tr.rbxcdn.com/8fc7652f210a411f6d07df86e4055958/420/420/Image/Png",
+        viewCount:1000000,
+        popularityCount:{
+            likeCount:1000000,
+            dislikeCount:10000
+        },
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+    {
+        id:uuid(),
+        title:"Video Title Example",
+        channel:"Channel",
+        thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
+        creatorIcon:"https://tr.rbxcdn.com/8fc7652f210a411f6d07df86e4055958/420/420/Image/Png",
+        viewCount:1000000,
+        popularityCount:{
+            likeCount:1000000,
+            dislikeCount:10000
+        },
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+    {
+        id:uuid(),
+        title:"Video Title Example",
+        channel:"Channel",
+        thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
+        creatorIcon:"https://tr.rbxcdn.com/8fc7652f210a411f6d07df86e4055958/420/420/Image/Png",
+        viewCount:1000000,
+        popularityCount:{
+            likeCount:1000000,
+            dislikeCount:10000
+        },
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+    {
+        id:uuid(),
+        title:"Video Title Example",
+        channel:"Channel",
+        thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
+        creatorIcon:"https://tr.rbxcdn.com/8fc7652f210a411f6d07df86e4055958/420/420/Image/Png",
+        viewCount:1000000,
+        popularityCount:{
+            likeCount:1000000,
+            dislikeCount:10000
+        },
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+    {
+        id:uuid(),
+        title:"Video Title Example",
+        channel:"Channel",
+        thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
+        creatorIcon:"https://tr.rbxcdn.com/8fc7652f210a411f6d07df86e4055958/420/420/Image/Png",
+        viewCount:1000000,
+        popularityCount:{
+            likeCount:1000000,
+            dislikeCount:10000
+        },
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+    {
+        id:uuid(),
+        title:"Video Title Example",
+        channel:"Channel",
+        thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
+        creatorIcon:"https://tr.rbxcdn.com/8fc7652f210a411f6d07df86e4055958/420/420/Image/Png",
+        viewCount:1000000,
+        popularityCount:{
+            likeCount:1000000,
+            dislikeCount:10000
+        },
+        subscriberCount:17000000,
+        description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
+    },
+       
 ]
 
 const shorts = [

@@ -11,7 +11,7 @@
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(173, 173, 173); 
+    background: grey;
     border-radius: 10px;
   }
   
@@ -23,9 +23,10 @@
 .sidebar{
     margin-top: 40px;
     width:17%;
+    max-width: 17%;
+    min-width: 17%;
     justify-content: center;
     height:90vh;
-    overflow-y: auto;
     position: fixed;
     top:40px;
     z-index: 0;
@@ -115,6 +116,12 @@
     }
 }
 
+.sidebar:hover{
+    overflow-y: auto;
+    width:17%;
+    max-width: 17%;
+    min-width: 17%;
+}
 
 .collapsed{
     margin-top: 40px;

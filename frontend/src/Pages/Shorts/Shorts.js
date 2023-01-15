@@ -17,6 +17,7 @@ function Shorts({collapsed,setCollapsed}){
     const history = useNavigate();
     const [currentData, setCurrentData] = React.useState([]);
     const [currentViewId,setCurrentViewId] = React.useState(0);
+    const [videoListPlaying, setVideoListPlaying] = React.useState([]);
 
     // const [page, setPage] = React.useState(0);
     
@@ -84,6 +85,8 @@ function Shorts({collapsed,setCollapsed}){
                                     <ScrollVideo
                                         image={item.image}
                                         index={index}
+                                        videoListPlaying = {videoListPlaying}
+                                        setVideoListPlaying = {setVideoListPlaying} 
                                     />
                                 </div>
                             ))
@@ -94,6 +97,8 @@ function Shorts({collapsed,setCollapsed}){
                                     <ScrollVideo
                                         image={item.image}
                                         index={index}
+                                        videoListPlaying = {videoListPlaying}
+                                        setVideoListPlaying = {setVideoListPlaying} 
                                     />
                                 </div>
                             ))
