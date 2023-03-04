@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import {GiPauseButton} from 'react-icons/gi';
 import {FaPlay} from 'react-icons/fa';
+import VideoPlayer from '../../Components/Player/VideoPlayer';
 
 function VideoPage({
     img,
@@ -56,11 +57,13 @@ function VideoPage({
             <Header collapsed={collapsed} setCollapsed={setCollapsed} color="black"/>
             <div className='videoContainer'>
                 <div className='videoContainerVideo'>
+                <VideoPlayer videoSrc="http://localhost:4000/videos"/>
+
                 {/* <source src={video} type="video/mp4"/> */}
-                <video width="90%" height="609vh" controls autoPlay={true} ref={videoRef} onPlay={()=>{setCurrentTime()}}>
+                {/* <video width="90%" height="609vh" controls autoPlay={true} ref={videoRef} onPlay={()=>{setCurrentTime()}}>
                     <source src="http://localhost:4000/videos" type="video/mp4" ></source>
-                </video>
-                <div className='bottomVideoPlayerBar'>
+                </video> */}
+                {/* <div className='bottomVideoPlayerBar'>
                     {
                         paused ?
                         <button onClick={()=>{
@@ -80,11 +83,8 @@ function VideoPage({
                         </button>
                     }
 
-                </div>
-                {console.log(videoRef)}
-                {/* <img
-                    src={img}
-                /> */}
+                </div> */}
+                
                 </div>
                 <div className="belowVideoPage">
                     <div className='leftVideo'>
