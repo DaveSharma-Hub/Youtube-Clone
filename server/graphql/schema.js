@@ -25,11 +25,27 @@ var schema = buildSchema(`
     channel:String
   }
 
+  type Comment {
+    id:String
+    comment:String
+    user:String
+    like:Int
+    dislikes:Int
+  }
+
+  type VideoComments {
+    id:String
+    videoId:String
+    comments:[Comment]
+  }
+
   type Query {
     recommendedVideos(userId:String):[Video]
     recommendedShorts(userId:String,pageStartingPosition:Int):[Shorts]
     searchResults(searchString:String):[Video]
+    videoComments(videoId:String):VideoComments
   }
+
 `);
 
 module.exports=(schema);

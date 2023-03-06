@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 import {GiPauseButton} from 'react-icons/gi';
 import {FaPlay} from 'react-icons/fa';
 import VideoPlayer from '../../Components/Player/VideoPlayer';
+import VideoComments from '../../Components/VideoComments/VideoComments';
+import useGetVideoComments from '../../grapqlCommuncation/queries/videos/useGetVideoComments';
 
 function VideoPage({
     img,
@@ -30,8 +32,11 @@ function VideoPage({
     const videoRef = useRef();
     const [paused, setPaused] = useState(false);
     const [storeCurrentTime, setStoreCurrentTime] = useState(time);
+    const {data, loading,error} = useGetVideoComments("1");
+    if(error) return <h1>Error</h1>
+    if(loading) return <h1>Loading...</h1>
     // const [video, setVideo] = useState("");
-
+console.log(data);
     const setCurrentTime = () => {
 
         if(videoRef.current?.currentTime){
@@ -140,6 +145,7 @@ function VideoPage({
                             </div>
                         </div>
                         <div className='videoDescription'>
+                            <VideoComments commentList={data.videoComments}/>
 
                         </div>
                     </div>

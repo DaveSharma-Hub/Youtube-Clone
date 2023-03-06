@@ -16,8 +16,9 @@ function VideoPlayer({videoSrc}){
         played: 0,
         seeking: false,
         buffer: true,
+        slider:0
       });
-    const { playing, muted, volume, playbackRate, played, seeking, buffer } =
+    const { playing, muted, volume, playbackRate, played, seeking, buffer, slider } =
       videoState;
       const currentTime = videoPlayerRef.current
       ? videoPlayerRef.current.getCurrentTime()
@@ -73,9 +74,14 @@ function VideoPlayer({videoSrc}){
       }
     };
   
-    const seekHandler = (e, value) => {
-      setVideoState({ ...videoState, played: parseFloat(value / 100) });
-      videoPlayerRef.current.seekTo(parseFloat(value / 100));
+    const seekHandler = (event, newValue) => {
+      setVideoState({ 
+        ...videoState,
+        played: parseFloat(newValue / 100),
+        slider:newValue
+      });
+      videoPlayerRef.current.seekTo(parseFloat(newValue / 100));
+      console.log(newValue);
     };
   
     const seekMouseUpHandler = (e, value) => {
@@ -129,8 +135,7 @@ function VideoPlayer({videoSrc}){
       setVideoState({ ...videoState, buffer: false });
     };
     return (
-        <Container style={{height:'100%'}} justify="center">
-
+        <div style={{height:'80vh'}}>
             <ReactPlayer 
                 ref={videoPlayerRef}
                 className="videoPlayerFrame"
@@ -164,8 +169,9 @@ function VideoPlayer({videoSrc}){
                 duration={formatDuration}
                 currentTime={formatCurrentTime}
                 onMouseSeekDown={onSeekMouseDownHandler}
+                slider={slider}
             />
-        </Container>
+        </div>
     )
 }
 

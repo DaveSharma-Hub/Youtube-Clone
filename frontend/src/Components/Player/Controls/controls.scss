@@ -1,5 +1,5 @@
 .control_Container {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: none;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -9,6 +9,7 @@
     z-index: 1;
     display: flex;
     justify-content: space-between;
+    height:87vh;
   }
   
   .top_container {

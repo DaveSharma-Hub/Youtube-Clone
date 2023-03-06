@@ -1,7 +1,7 @@
 import './controls.scss';
+import Slider from '@mui/material/Slider';
 import {
     makeStyles,
-    Slider,
     withStyles,
     Button,
     Tooltip,
@@ -17,6 +17,8 @@ import {
     VolumeUp,
     VolumeOff
   } from "@mui/icons-material";
+import { Box } from '@mui/system';
+import { useState } from 'react';
 
   const useStyles = makeStyles({
     volumeSlider: {
@@ -34,39 +36,39 @@ import {
     },
   });
   
-  const PrettoSlider = withStyles({
-    root: {
-      height: "20px",
-      color: "#9556CC",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    thumb: {
-      height: 20,
-      width: 20,
-      backgroundColor: "#9556CC",
-      border: "2px solid currentColor",
-      marginTop: -3,
-      marginLeft: -12,
-      "&:focus, &:hover, &$active": {
-        boxShadow: "inherit",
-      },
-    },
-    active: {},
-    valueLabel: {
-      left: "calc(-50% + 4px)",
-    },
-    track: {
-      height: 5,
-      borderRadius: 4,
-      width: "100%",
-    },
-    rail: {
-      height: 5,
-      borderRadius: 4,
-    },
-  })(Slider);
+  // const PrettoSlider = withStyles({
+  //   root: {
+  //     height: "20px",
+  //     color: "#9556CC",
+  //     display: "flex",
+  //     justifyContent: "center",
+  //     alignItems: "center",
+  //   },
+  //   thumb: {
+  //     height: 20,
+  //     width: 20,
+  //     backgroundColor: "#9556CC",
+  //     border: "2px solid currentColor",
+  //     marginTop: -3,
+  //     marginLeft: -12,
+  //     "&:focus, &:hover, &$active": {
+  //       boxShadow: "inherit",
+  //     },
+  //   },
+  //   active: {},
+  //   valueLabel: {
+  //     left: "calc(-50% + 4px)",
+  //   },
+  //   track: {
+  //     height: 5,
+  //     borderRadius: 4,
+  //     width: "100%",
+  //   },
+  //   rail: {
+  //     height: 5,
+  //     borderRadius: 4,
+  //   },
+  // })(Slider);
 
 function Controls(
     onPlayPause,
@@ -84,10 +86,11 @@ function Controls(
   duration,
   currentTime,
   onMouseSeekDown,
-  controlRef
+  controlRef,
+  slider
 ){
-    const classes = useStyles();
-
+  const classes = useStyles();
+  
 
   return (
     <div className="control_Container" ref ={controlRef}>
@@ -110,14 +113,25 @@ function Controls(
       </div>
       <div className="bottom__container">
         <div className="slider__container">
-          <PrettoSlider
+          {/* <PrettoSlider
             min={0}
             max={100}
             value={played * 100}
             onChange={onSeek}
             onChangeCommitted={onSeekMouseUp}
             onMouseDown={onMouseSeekDown}
-          />
+          /> */}
+              <Box sx={{ width:'90vw' }}>
+                <Slider
+                  aria-label="time-indicator"
+                  size="small"
+                  min={0}
+                  max={100}
+                  value={slider}
+                  onChange={onSeek}
+                  valueLabelDisplay="auto"
+                />
+              </Box>
         </div>
         <div className="control__box">
           <div className="inner__controls">
@@ -141,12 +155,19 @@ function Controls(
                 )}
             </div>
 
-            <Slider
-              className={`${classes.volumeSlider}`}
+            {/* <Slider
+              // className={`${classes.volumeSlider}`}
               onChange={onVolumeChangeHandler}
               value={volume * 100}
-              onChangeCommitted={onVolumeSeekUp}
-            />
+              // onChangeCommitted={onVolumeSeekUp}
+            /> */}
+            <Box sx={{ width:'10vw' }}>
+              <Slider 
+                defaultValue={50} 
+                aria-label="Default" 
+                valueLabelDisplay="auto" 
+              />
+            </Box>
 
             <span>{ currentTime} : {duration}</span>
           </div>

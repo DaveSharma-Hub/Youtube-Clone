@@ -1,6 +1,6 @@
 const {v4:uuid} = require('uuid')
 const searchFunction = require('../utils/searchFunction').searchFunction;
-
+const axios = require('axios');
 
 var root = {
     recommendedVideos: (args) => {
@@ -14,6 +14,16 @@ var root = {
         const searchToken = args.searchString;
         const videoList = searchFunction(videos,searchToken,["title","channel"],false);
         return videoList;
+    },
+    videoComments: async(args) => {
+        try{
+            const videoId = args.videoId;
+            const videoComment = await axios.get(`http://localhost:9000/getComments?videoId=${videoId}`);
+            return videoComment.data;
+        }catch(err){
+            console.log(err);
+            return [];
+        }
     }
   };
 
@@ -21,7 +31,8 @@ module.exports=(root);
 
 const videos = [
     {
-        id:uuid(),
+        //id:uuid(),
+        id:1,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -35,7 +46,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:2,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -49,7 +60,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:3,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -63,7 +74,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:4,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -77,7 +88,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:5,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -91,7 +102,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:6,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -105,7 +116,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:7,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -119,7 +130,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:8,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -133,7 +144,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:9,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -147,7 +158,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:10,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -161,7 +172,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:11,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -175,7 +186,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:12,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -189,7 +200,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:13,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -203,7 +214,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:14,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -217,7 +228,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:15,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -231,7 +242,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:16,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -245,7 +256,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:17,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -259,7 +270,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:18,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -273,7 +284,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:19,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -287,7 +298,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:20,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -301,7 +312,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:21,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -315,7 +326,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:22,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -329,7 +340,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:23,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -343,7 +354,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:24,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -357,7 +368,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:25,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -371,7 +382,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:26,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -385,7 +396,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:27,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -399,7 +410,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:28,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -413,7 +424,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:29,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -427,7 +438,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:30,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -441,7 +452,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:31,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -455,7 +466,7 @@ const videos = [
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
     },
     {
-        id:uuid(),
+        id:32,
         title:"Video Title Example",
         channel:"Channel",
         thumbnail:"https://static-cse.canva.com/blob/951430/1600w-wK95f3XNRaM.jpg",
@@ -467,8 +478,7 @@ const videos = [
         },
         subscriberCount:17000000,
         description:"Cool video, need to watch now. Great vlog, coming soon.Stay tuned.#New#Cool#Test"
-    },
-       
+    }, 
 ]
 
 const shorts = [
