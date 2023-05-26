@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 import LoadingCard from "../Card/LoadingCard/LoadingCard";
 import './thumbnails.scss';
 
-function Thumbnails({setClicked}){
+function Thumbnails({setClicked, collapsed}){
     const recommendedVideoList = useGetRecommendedVideos("123");
     if(recommendedVideoList.error) return <h1>Error</h1>
     if(recommendedVideoList.loading) return <h1>Loading...</h1>
@@ -24,7 +24,7 @@ function Thumbnails({setClicked}){
         return value;
     }
     return(
-        <div className="thumbnails">
+        <div className={collapsed ? "thumbnailsCollapsed" : "thumbnails"}>
             {
             recommendedVideoList.loading ? 
             [...Array(4*9)]?.map((item,index)=>{

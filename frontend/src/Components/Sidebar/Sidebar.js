@@ -24,7 +24,7 @@ function Sidebar({collapsed}){
             </div>
             :
            <ul className="firstItems">
-                <li className="item">
+                <li className="item" onClick={()=>{history('/')}}>
                     <div className="icon">
                         <AiFillHome />
                     </div>

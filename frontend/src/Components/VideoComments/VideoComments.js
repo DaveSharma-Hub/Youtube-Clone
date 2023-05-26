@@ -3,6 +3,17 @@ import './videocomments.scss';
 function VideoComments({commentList}){
     return(
         <div className="videoCommentSection">
+            <div className="videoCommentAddCommentUnsigned">
+                <div className="videoCommentAddCommentLogo">
+                    <img 
+                        src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"
+                    />
+                </div>
+                <div className="videoCommentAddCommentText">
+                    Add Comment...
+                    <hr/>
+                </div>
+            </div>
             {
                 commentList.comments.map((videoComment)=>{
                     return (

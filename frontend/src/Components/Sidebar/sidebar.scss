@@ -22,14 +22,14 @@
 
 .sidebar{
     margin-top: 40px;
-    width:17%;
+    width:5%;
     max-width: 17%;
     min-width: 17%;
     justify-content: center;
     height:90vh;
     position: fixed;
     top:40px;
-    z-index: 0;
+    z-index: 1;
 
     hr{
         border: 1px solid rgb(220, 220, 220);
@@ -118,21 +118,23 @@
 
 .sidebar:hover{
     overflow-y: auto;
-    width:17%;
-    max-width: 17%;
-    min-width: 17%;
+    width:17.77%;
+    max-width: 17.77%;
+    min-width: 17.77%;
 }
 
 .collapsed{
     margin-top: 40px;
-    width:5%;
+    width:6%;
     justify-content: center;
     height:90vh;
     overflow-x: none;
-    background-color: red;
+    position: fixed;
+    top:40px;
+    z-index: 1;
     /* width */
     ul{
-        background-color: blue;
+
     }
   ::-webkit-scrollbar {
     width: 10px;

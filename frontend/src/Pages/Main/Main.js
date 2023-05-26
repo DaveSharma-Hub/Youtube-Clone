@@ -12,7 +12,7 @@ function Main({collapsed,setCollapsed,clicked,setClicked}){
             <Header collapsed={collapsed} setCollapsed={setCollapsed}/>
             <div className="mainContainer">
                 <Sidebar collapsed={collapsed}/>
-                <Thumbnails setClicked={setClicked}/>
+                <Thumbnails setClicked={setClicked} collapsed={collapsed}/>
                 {
                     clicked ?
                     <div className="playerCorner">

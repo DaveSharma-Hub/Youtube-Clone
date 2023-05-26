@@ -16,7 +16,7 @@ function CollapsedSidebar(){
     const history = useNavigate();
     return(
         <ul className="firstItemsC">
-                <li className="itemC">
+                <li className="itemC" onClick={()=>{history('/')}}>
                     <div className="iconC">
                         <AiFillHome />
                     </div>
@@ -24,11 +24,11 @@ function CollapsedSidebar(){
                         Home
                     </div>
                 </li>
-                <li className="itemC">
+                <li className="itemC" onClick={()=>{history('/shorts')}}>
                     <div className="iconC">
                         <GiUnderwearShorts />
                     </div>
-                    <div className="textC" onClick={()=>{history('/shorts')}}>
+                    <div className="textC">
                         Shorts
                     </div>
                 </li>
